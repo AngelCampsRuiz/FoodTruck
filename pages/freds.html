@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freds - Food Truck</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- CSS personalizado -->
+    <link href="../css/styles.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar (igual que en index.html) -->
+    
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb" class="container mt-3">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="../index.html">Inici</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Freds</li>
+        </ol>
+    </nav>
+
+    <!-- Lista de Productos Fríos -->
+    <div class="container mt-4">
+        <h1 class="mb-4">Els Nostres Entrepans Freds</h1>
+        
+        <div class="row">
+            <!-- Entrepà de Ibèric -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="../img/iberic.jpg" class="card-img-top" alt="Entrepà de Ibèric">
+                    <div class="card-body">
+                        <h5 class="card-title">Entrepà de Ibèric</h5>
+                        <p class="card-text">El millor pernil ibèric amb pa artesà i tomàquet.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a href="freds/iberic.html" class="btn btn-primary">Veure més</a>
+                            <span class="badge bg-success">
+                                <i class="fas fa-euro-sign"></i> 8.50
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Entrepà de Formatge -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="../img/formatge.jpg" class="card-img-top" alt="Entrepà de Formatge">
+                    <div class="card-body">
+                        <h5 class="card-title">Entrepà de Formatge</h5>
+                        <p class="card-text">Selecció de formatges artesans amb pa de cereals.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a href="freds/formatge.html" class="btn btn-primary">Veure més</a>
+                            <span class="badge bg-success">
+                                <i class="fas fa-euro-sign"></i> 7.50
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Entrepà Vegetal -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="../img/vegetal.jpg" class="card-img-top" alt="Entrepà Vegetal">
+                    <div class="card-body">
+                        <h5 class="card-title">Entrepà Vegetal</h5>
+                        <p class="card-text">Verdures fresques de temporada amb hummus casolà.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a href="freds/vegetal.html" class="btn btn-primary">Veure més</a>
+                            <span class="badge bg-success">
+                                <i class="fas fa-euro-sign"></i> 6.50
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Paginación -->
+        <nav aria-label="Navegació de pàgines" class="mt-4">
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">Anterior</a>
+                </li>
+                <li class="page-item active">
+                    <a class="page-link" href="#">1</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">2</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Següent</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Footer (igual que en index.html) -->
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html> 
