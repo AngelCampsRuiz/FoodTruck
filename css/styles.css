@@ -1,0 +1,41 @@
+.carousel-item img {
+    height: 400px;
+    object-fit: cover;
+}
+
+.card {
+    transition: transform 0.2s;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.fa-thumbs-up, .fa-thumbs-down {
+    cursor: pointer;
+}
+
+footer a:hover {
+    color: #ccc !important;
+}
+
+/* Estilos para la página de producto */
+.rating {
+    font-size: 1.2rem;
+}
+
+/* Estilos para Qui Som */
+.lead {
+    font-size: 1.4rem;
+    color: #666;
+}
+
+.social-links a {
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #007bff !important;
+} 
