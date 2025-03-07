@@ -152,4 +152,50 @@ document.addEventListener('DOMContentLoaded', function() {
             contactForm.reset();
         });
     }
+});
+
+// Gestión de la paginación
+document.addEventListener('DOMContentLoaded', function() {
+    const prevPageBtn = document.getElementById('prevPage');
+    const nextPageBtn = document.getElementById('nextPage');
+    const pageItems = document.querySelectorAll('.pagination .page-item:not(:first-child):not(:last-child)');
+    
+    // Mostrar solo los primeros 5 números de página
+    let currentPage = 0;
+    const itemsPerPage = 5;
+    
+    function updatePagination() {
+        pageItems.forEach((item, index) => {
+            if (index >= currentPage && index < currentPage + itemsPerPage) {
+                item.style.display = 'block';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+        
+        // Actualizar estado de los botones prev/next
+        prevPageBtn.parentElement.classList.toggle('disabled', currentPage === 0);
+        nextPageBtn.parentElement.classList.toggle('disabled', currentPage + itemsPerPage >= pageItems.length);
+    }
+    
+    // Inicializar paginación
+    updatePagination();
+    
+    // Manejar clic en "Anterior"
+    prevPageBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        if (currentPage > 0) {
+            currentPage -= itemsPerPage;
+            updatePagination();
+        }
+    });
+    
+    // Manejar clic en "Següent"
+    nextPageBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        if (currentPage + itemsPerPage < pageItems.length) {
+            currentPage += itemsPerPage;
+            updatePagination();
+        }
+    });
 }); 
