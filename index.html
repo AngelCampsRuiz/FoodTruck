@@ -15,11 +15,11 @@
 
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
             <!-- Logo -->
-            <a class="navbar-brand" href="#">
-                <img src="img/logo.png" alt="Logo" width="30" height="30">
+            <a class="navbar-brand" href="index.html">
+                <img src="img/logo.png" alt="Logo" width="40" height="40" class="rounded-circle">
             </a>
 
             <!-- Botón hamburguesa para móvil -->
@@ -29,130 +29,64 @@
 
             <!-- Contenido del navbar -->
             <div class="collapse navbar-collapse" id="navbarContent">
-                <!-- Menú desplegable -->
+                <!-- Menú principal -->
                 <ul class="navbar-nav me-auto">
-                    <!-- Freds -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Freds</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="freds/iberic.html">Entrepà de ibèric</a></li>
-                            <li><a class="dropdown-item" href="freds/formatge.html">Entrepà formatge</a></li>
-                            <li><a class="dropdown-item" href="freds/vegetal.html">Entrepà vegetal</a></li>
-                        </ul>
-                    </li>
-                    
-                    <!-- Calents -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Calents</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="calents/burger.html">Burger</a></li>
-                            <li><a class="dropdown-item" href="calents/frankfurt.html">Frankfurt</a></li>
-                            <li><a class="dropdown-item" href="calents/pizza.html">Pizza</a></li>
-                        </ul>
-                    </li>
-                    
-                    <!-- Dolços -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Dolços</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="dolcos/creppe.html">Crêppe xocolata</a></li>
-                            <li><a class="dropdown-item" href="dolcos/gelat.html">Gelat Magnum</a></li>
-                            <li><a class="dropdown-item" href="dolcos/brownie.html">Brownie</a></li>
-                        </ul>
-                    </li>
-                    
-                    <!-- Begudes -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Begudes</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="begudes/cervesa.html">Cervesa</a></li>
-                            <li><a class="dropdown-item" href="begudes/cocacola.html">Coca Cola</a></li>
-                            <li><a class="dropdown-item" href="begudes/aigua.html">Aigua</a></li>
-                        </ul>
-                    </li>
-                </ul>
-
-                <!-- Qui som -->
-                <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="quisom.html">Qui som</a>
-                    </li>
-                </ul>
-
-                <!-- Login/Logout -->
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <button class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#loginModal">
-                            <i class="fas fa-user"></i> Login
-                        </button>
+                        <a class="nav-link active" href="index.html">Inici</a>
                     </li>
                     <li class="nav-item">
-                        <button class="btn btn-outline-danger" id="logoutBtn" style="display: none;">
-                            <i class="fas fa-sign-out-alt"></i> Logout
-                        </button>
+                        <a class="nav-link" href="pages/menjar.html">Menjar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/begudes.html">Begudes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/quisom.html">Nosaltres</a>
                     </li>
                 </ul>
+                
+                <!-- Mensaje de bienvenida (se añade dinámicamente con JS) -->
+                <span id="welcomeMessage" class="navbar-text text-white me-3" style="display: none;">
+                    Benvingut xxxxx
+                </span>
+                
+                <!-- Botones de login/logout -->
+                <button class="btn btn-light me-2" data-bs-toggle="modal" data-bs-target="#loginModal" data-bs-toggle="tooltip" title="Iniciar sessió">
+                    Login
+                </button>
+                <button class="btn btn-danger" id="logoutBtn" style="display: none;" data-bs-toggle="tooltip" title="Tancar sessió">
+                    Logout
+                </button>
             </div>
         </div>
     </nav>
 
     <!-- Modal de Login -->
     <div class="modal fade" id="loginModal">
-        <div class="modal-dialog">
-            <div class="modal-content">
+        <div class="modal-dialog modal-dialog-end">
+            <div class="modal-content bg-light bg-opacity-90">
                 <div class="modal-header">
-                    <h5 class="modal-title">Login</h5>
+                    <h5 class="modal-title">Formulari de login</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
                     <form id="loginForm">
                         <div class="mb-3">
-                            <label class="form-label">Usuari</label>
+                            <label class="form-label">Login</label>
                             <input type="text" class="form-control" id="username" required>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Contrasenya</label>
+                            <label class="form-label">Password</label>
                             <input type="password" class="form-control" id="password" required>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel·lar</button>
-                    <button type="button" class="btn btn-primary" id="loginSubmit">Enviar</button>
+                    <button type="button" class="btn btn-primary" id="loginSubmit">Login</button>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Carrusel -->
-    <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active"></button>
-            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="1"></button>
-            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="2"></button>
-            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="3"></button>
-        </div>
-
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="img/slide1.jpg" class="d-block w-100" alt="Food Truck">
-            </div>
-            <div class="carousel-item">
-                <img src="img/slide2.jpg" class="d-block w-100" alt="Comida">
-            </div>
-            <div class="carousel-item">
-                <img src="img/slide3.jpg" class="d-block w-100" alt="Bebidas">
-            </div>
-            <div class="carousel-item">
-                <img src="img/slide4.jpg" class="d-block w-100" alt="Postres">
-            </div>
-        </div>
-
-        <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon"></span>
-        </button>
     </div>
 
     <!-- Breadcrumb -->
@@ -162,40 +96,146 @@
         </ol>
     </nav>
 
+    <!-- Carrusel -->
+    <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="2"></button>
+            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="d-flex justify-content-center align-items-center bg-secondary bg-opacity-25" style="height: 300px;">
+                    <h2>First slide x 4 images</h2>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="d-flex justify-content-center align-items-center bg-secondary bg-opacity-25" style="height: 300px;">
+                    <h2>Second slide</h2>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="d-flex justify-content-center align-items-center bg-secondary bg-opacity-25" style="height: 300px;">
+                    <h2>Third slide</h2>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="d-flex justify-content-center align-items-center bg-secondary bg-opacity-25" style="height: 300px;">
+                    <h2>Fourth slide</h2>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+            <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+            <span class="visually-hidden">Següent</span>
+        </button>
+    </div>
+
     <!-- Cards -->
-    <div class="container mt-4">
+    <div class="container mt-5">
         <div class="row">
             <!-- Card 1 -->
-            <div class="col-md-3">
-                <div class="card">
-                    <img src="img/product1.jpg" class="card-img-top" alt="Producto 1">
+            <div class="col-md-3 mb-4">
+                <div class="card h-100">
+                    <div class="bg-secondary text-center py-5">
+                        <span class="text-white">Image cap</span>
+                    </div>
                     <div class="card-body">
-                        <h5 class="card-title">Entrepà Especial</h5>
-                        <p class="card-text">El nostre entrepà més popular amb ingredients frescos.</p>
-                        <div class="d-flex justify-content-end">
-                            <i class="fas fa-thumbs-up text-success me-2" data-bs-toggle="tooltip" title="M'agrada"></i>
-                            <i class="fas fa-thumbs-down text-danger" data-bs-toggle="tooltip" title="No m'agrada"></i>
-                        </div>
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                        <p class="text-muted">Last updated 3 mins ago</p>
+                    </div>
+                    <div class="card-footer d-flex justify-content-end">
+                        <i class="fas fa-thumbs-up text-success me-2" data-bs-toggle="tooltip" title="M'agrada"></i>
+                        <i class="fas fa-thumbs-down text-danger" data-bs-toggle="tooltip" title="No m'agrada"></i>
                     </div>
                 </div>
             </div>
-            <!-- Repetir estructura para Card 2, 3 y 4 -->
+            
+            <!-- Card 2 -->
+            <div class="col-md-3 mb-4">
+                <div class="card h-100">
+                    <div class="bg-secondary text-center py-5">
+                        <span class="text-white">Image cap</span>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                        <p class="text-muted">Last updated 3 mins ago</p>
+                    </div>
+                    <div class="card-footer d-flex justify-content-end">
+                        <i class="fas fa-thumbs-up text-success me-2" data-bs-toggle="tooltip" title="M'agrada"></i>
+                        <i class="fas fa-thumbs-down text-danger" data-bs-toggle="tooltip" title="No m'agrada"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 3 -->
+            <div class="col-md-3 mb-4">
+                <div class="card h-100">
+                    <div class="bg-secondary text-center py-5">
+                        <span class="text-white">Image cap</span>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                        <p class="text-muted">Last updated 3 mins ago</p>
+                    </div>
+                    <div class="card-footer d-flex justify-content-end">
+                        <i class="fas fa-thumbs-up text-success me-2" data-bs-toggle="tooltip" title="M'agrada"></i>
+                        <i class="fas fa-thumbs-down text-danger" data-bs-toggle="tooltip" title="No m'agrada"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 4 -->
+            <div class="col-md-3 mb-4">
+                <div class="card h-100">
+                    <div class="bg-secondary text-center py-5">
+                        <span class="text-white">Image cap</span>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                        <p class="text-muted">Last updated 3 mins ago</p>
+                    </div>
+                    <div class="card-footer d-flex justify-content-end">
+                        <i class="fas fa-thumbs-up text-success me-2" data-bs-toggle="tooltip" title="M'agrada"></i>
+                        <i class="fas fa-thumbs-down text-danger" data-bs-toggle="tooltip" title="No m'agrada"></i>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
     <!-- Paginación -->
     <nav aria-label="Navegació de pàgines" class="container mt-4">
         <ul class="pagination justify-content-center">
-            <li class="page-item"><a class="page-link" href="#">Anterior</a></li>
-            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">Següent</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#">Previous</a>
+            </li>
+            <li class="page-item active">
+                <a class="page-link" href="#">1</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#">2</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#">3</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+            </li>
         </ul>
     </nav>
 
     <!-- Alerta de Cookies -->
-    <div class="alert alert-info alert-dismissible fade show" role="alert">
+    <div class="alert alert-info alert-dismissible fade show position-fixed bottom-0 start-50 translate-middle-x mb-4" role="alert">
         <strong>Avís de Cookies!</strong> Aquest lloc web utilitza cookies per millorar la seva experiència.
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
@@ -204,37 +244,43 @@
     <footer class="bg-dark text-white py-4 mt-5">
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
-                    <h5>Food Truck</h5>
-                    <p>La millor experiència gastronòmica sobre rodes</p>
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <div class="bg-light bg-opacity-25 p-3 rounded">
+                        <h5 class="text-center">On trobar-nos (icona personal)</h5>
+                    </div>
                 </div>
-                <div class="col-md-6 text-md-end">
-                    <h5>Segueix-nos</h5>
-                    <div class="social-icons">
-                        <a href="#" class="text-white me-3" data-bs-toggle="tooltip" title="Facebook">
+                <div class="col-md-6 text-center text-md-end">
+                    <div class="bg-light bg-opacity-25 p-3 rounded">
+                        <h5 class="text-center">Qui som (icona personal)</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-12 text-center">
+                    <div class="social-icons d-flex justify-content-center gap-3">
+                        <a href="#" class="text-white" data-bs-toggle="tooltip" title="Facebook">
                             <i class="fab fa-facebook-f fa-lg"></i>
                         </a>
-                        <a href="#" class="text-white me-3" data-bs-toggle="tooltip" title="Instagram">
+                        <a href="#" class="text-white" data-bs-toggle="tooltip" title="Instagram">
                             <i class="fab fa-instagram fa-lg"></i>
                         </a>
-                        <a href="#" class="text-white me-3" data-bs-toggle="tooltip" title="Twitter">
+                        <a href="#" class="text-white" data-bs-toggle="tooltip" title="Twitter">
                             <i class="fab fa-twitter fa-lg"></i>
-                        </a>
-                        <a href="#" class="text-white" data-bs-toggle="tooltip" title="YouTube">
-                            <i class="fab fa-youtube fa-lg"></i>
                         </a>
                     </div>
                 </div>
             </div>
             <div class="row mt-3">
                 <div class="col-12 text-center">
-                    <small>&copy; 2023 Food Truck. Tots els drets reservats.</small>
+                    <small>Info · Support · Marketing</small><br>
+                    <small>Terms of Use · Privacy Policy</small><br>
+                    <small>&copy; 2023 Food Truck</small>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Scripts de Bootstrap y jQuery -->
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>
 </body>

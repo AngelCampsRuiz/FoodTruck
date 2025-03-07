@@ -214,4 +214,54 @@ main {
 
 footer {
     margin-top: auto;
+}
+
+/* Posicionar el modal de login en el lado derecho */
+.modal-dialog-end {
+    margin-right: 0;
+    margin-left: auto;
+    width: 300px;
+}
+
+/* Estilo para el mensaje de bienvenida */
+#welcomeMessage {
+    font-weight: bold;
+}
+
+/* Estilos para las cards */
+.card {
+    transition: transform 0.3s ease;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.card-footer {
+    background-color: transparent;
+    border-top: 1px solid rgba(0,0,0,0.125);
+}
+
+/* Estilos para el footer */
+footer {
+    margin-top: 50px;
+}
+
+.social-icons a {
+    transition: transform 0.3s ease;
+}
+
+.social-icons a:hover {
+    transform: translateY(-5px);
+    color: #f8f9fa !important;
+}
+
+/* Alerta de cookies */
+.alert {
+    max-width: 90%;
+    width: 400px;
+    z-index: 1050;
 } 
