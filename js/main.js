@@ -4,11 +4,31 @@ document.addEventListener('DOMContentLoaded', function() {
     const loginSubmit = document.getElementById('loginSubmit');
     const logoutBtn = document.getElementById('logoutBtn');
     const loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
+    const welcomeMessage = document.getElementById('welcomeMessage');
 
     // Inicializar tooltips para todos los elementos con data-bs-toggle="tooltip"
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
     tooltipTriggerList.map(function (tooltipTriggerEl) {
         return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+
+    // Inicializar los submenús desplegables
+    document.querySelectorAll('.dropdown-submenu > a').forEach(function(element) {
+        element.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            var submenu = this.nextElementSibling;
+            if (submenu) {
+                if (submenu.style.display === 'block') {
+                    submenu.style.display = 'none';
+                } else {
+                    document.querySelectorAll('.dropdown-submenu .dropdown-menu').forEach(function(menu) {
+                        menu.style.display = 'none';
+                    });
+                    submenu.style.display = 'block';
+                }
+            }
+        });
     });
 
     // Manejar el envío del formulario
@@ -21,17 +41,18 @@ document.addEventListener('DOMContentLoaded', function() {
         if (username && password) {
             localStorage.setItem('isLoggedIn', 'true');
             localStorage.setItem('username', username);
+            
+            // Mostrar mensaje de bienvenida
+            welcomeMessage.textContent = `Benvingut ${username}`;
+            welcomeMessage.style.display = 'block';
+            
+            // Ocultar botón login y mostrar logout
             document.querySelector('[data-bs-target="#loginModal"]').style.display = 'none';
             logoutBtn.style.display = 'block';
             
-            // Mostrar mensaje de bienvenida
-            const welcomeMsg = document.createElement('span');
-            welcomeMsg.id = 'welcomeMessage';
-            welcomeMsg.className = 'navbar-text me-3';
-            welcomeMsg.innerHTML = `Benvingut ${username}`;
-            document.querySelector('.navbar-nav.ms-auto').prepend(welcomeMsg);
-            
+            // Cerrar el modal
             loginModal.hide();
+            
             showAlert('success', 'Has iniciat sessió correctament!');
         } else {
             showAlert('danger', 'Usuari o contrasenya incorrectes');
@@ -42,12 +63,13 @@ document.addEventListener('DOMContentLoaded', function() {
     logoutBtn.addEventListener('click', function() {
         localStorage.removeItem('isLoggedIn');
         localStorage.removeItem('username');
+        
+        // Ocultar mensaje de bienvenida
+        welcomeMessage.style.display = 'none';
+        
+        // Mostrar botón login y ocultar logout
         document.querySelector('[data-bs-target="#loginModal"]').style.display = 'block';
         logoutBtn.style.display = 'none';
-        
-        // Eliminar mensaje de bienvenida
-        const welcomeMsg = document.getElementById('welcomeMessage');
-        if (welcomeMsg) welcomeMsg.remove();
         
         showAlert('info', 'Has tancat la sessió');
     });
@@ -55,18 +77,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // Comprobar si el usuario está logueado al cargar la página
     if (localStorage.getItem('isLoggedIn') === 'true') {
         const username = localStorage.getItem('username');
+        
+        // Mostrar mensaje de bienvenida
+        welcomeMessage.textContent = `Benvingut ${username}`;
+        welcomeMessage.style.display = 'block';
+        
+        // Ocultar botón login y mostrar logout
         document.querySelector('[data-bs-target="#loginModal"]').style.display = 'none';
         logoutBtn.style.display = 'block';
-        
-        // Mostrar mensaje de bienvenida si hay un elemento navbar-nav.ms-auto
-        const navbarRight = document.querySelector('.navbar-nav.ms-auto');
-        if (navbarRight && username) {
-            const welcomeMsg = document.createElement('span');
-            welcomeMsg.id = 'welcomeMessage';
-            welcomeMsg.className = 'navbar-text me-3';
-            welcomeMsg.innerHTML = `Benvingut ${username}`;
-            navbarRight.prepend(welcomeMsg);
-        }
     }
 
     // Manejar los likes/dislikes
@@ -84,17 +102,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Función para mostrar alertas
 function showAlert(type, message) {
-    const alertDiv = document.createElement('div');
-    alertDiv.className = `alert alert-${type} alert-dismissible fade show position-fixed top-0 start-50 translate-middle-x mt-3`;
-    alertDiv.style.zIndex = '1050';
-    alertDiv.innerHTML = `
-        ${message}
-        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    const alertPlaceholder = document.createElement('div');
+    alertPlaceholder.className = 'alert-container';
+    document.body.appendChild(alertPlaceholder);
+    
+    const wrapper = document.createElement('div');
+    wrapper.innerHTML = `
+        <div class="alert alert-${type} alert-dismissible fade show" role="alert">
+            ${message}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
     `;
-    document.body.appendChild(alertDiv);
-
-    setTimeout(() => {
-        alertDiv.remove();
+    
+    alertPlaceholder.append(wrapper);
+    
+    // Eliminar la alerta después de 3 segundos
+    setTimeout(function() {
+        wrapper.querySelector('.alert').classList.remove('show');
+        setTimeout(function() {
+            alertPlaceholder.remove();
+        }, 300);
     }, 3000);
 }
 

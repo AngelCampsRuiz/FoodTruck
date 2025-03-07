@@ -34,18 +34,63 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="index.html">Inici</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="pages/menjar.html">Menjar</a>
+                    
+                    <!-- Menú desplegable Menjar -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="menjarDropdown" role="button" data-bs-toggle="dropdown">
+                            Menjar
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="menjarDropdown">
+                            <!-- Submenú Freds -->
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-item dropdown-toggle" href="pages/freds.html">Freds</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="pages/freds/iberic.html">Entrepà de ibèric</a></li>
+                                    <li><a class="dropdown-item" href="pages/freds/formatge.html">Entrepà formatge</a></li>
+                                    <li><a class="dropdown-item" href="pages/freds/vegetal.html">Entrepà vegetal</a></li>
+                                </ul>
+                            </li>
+                            
+                            <!-- Submenú Calents -->
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-item dropdown-toggle" href="pages/calents.html">Calents</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="pages/calents/burger.html">Burger</a></li>
+                                    <li><a class="dropdown-item" href="pages/calents/frankfurt.html">Frankfurt</a></li>
+                                    <li><a class="dropdown-item" href="pages/calents/pizza.html">Pizza</a></li>
+                                </ul>
+                            </li>
+                            
+                            <!-- Submenú Dolços -->
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-item dropdown-toggle" href="pages/dolcos.html">Dolços</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="pages/dolcos/gelat.html">Gelat Magnum</a></li>
+                                    <li><a class="dropdown-item" href="pages/dolcos/crepe.html">Crêppe xocolata</a></li>
+                                    <li><a class="dropdown-item" href="pages/dolcos/pastis.html">Pastís</a></li>
+                                </ul>
+                            </li>
+                        </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="pages/begudes.html">Begudes</a>
+                    
+                    <!-- Menú desplegable Begudes -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="begudesDropdown" role="button" data-bs-toggle="dropdown">
+                            Begudes
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="begudesDropdown">
+                            <li><a class="dropdown-item" href="pages/begudes/cocacola.html">Coca Cola</a></li>
+                            <li><a class="dropdown-item" href="pages/begudes/cervesa.html">Cervesa</a></li>
+                            <li><a class="dropdown-item" href="pages/begudes/aigua.html">Aigua</a></li>
+                        </ul>
                     </li>
+                    
                     <li class="nav-item">
                         <a class="nav-link" href="pages/quisom.html">Nosaltres</a>
                     </li>
                 </ul>
                 
-                <!-- Mensaje de bienvenida (se añade dinámicamente con JS) -->
+                <!-- Mensaje de bienvenida (visible cuando se inicia sesión) -->
                 <span id="welcomeMessage" class="navbar-text text-white me-3" style="display: none;">
                     Benvingut xxxxx
                 </span>
