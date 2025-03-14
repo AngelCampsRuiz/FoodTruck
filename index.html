@@ -34,18 +34,63 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="index.html">Inici</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="pages/menjar.html">Menjar</a>
+                    
+                    <!-- Menú desplegable Menjar -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="menjarDropdown" role="button" data-bs-toggle="dropdown">
+                            Menjar
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="menjarDropdown">
+                            <!-- Submenú Freds -->
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-item dropdown-toggle" href="pages/freds.html">Freds</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="pages/freds/iberic.html">Entrepà de ibèric</a></li>
+                                    <li><a class="dropdown-item" href="pages/freds/formatge.html">Entrepà formatge</a></li>
+                                    <li><a class="dropdown-item" href="pages/freds/vegetal.html">Entrepà vegetal</a></li>
+                                </ul>
+                            </li>
+                            
+                            <!-- Submenú Calents -->
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-item dropdown-toggle" href="pages/calents.html">Calents</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="pages/calents/burger.html">Burger</a></li>
+                                    <li><a class="dropdown-item" href="pages/calents/frankfurt.html">Frankfurt</a></li>
+                                    <li><a class="dropdown-item" href="pages/calents/pizza.html">Pizza</a></li>
+                                </ul>
+                            </li>
+                            
+                            <!-- Submenú Dolços -->
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-item dropdown-toggle" href="pages/dolcos.html">Dolços</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="pages/dolcos/gelat.html">Gelat Magnum</a></li>
+                                    <li><a class="dropdown-item" href="pages/dolcos/crepe.html">Crêppe xocolata</a></li>
+                                    <li><a class="dropdown-item" href="pages/dolcos/pastis.html">Pastís</a></li>
+                                </ul>
+                            </li>
+                        </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="pages/begudes.html">Begudes</a>
+                    
+                    <!-- Menú desplegable Begudes -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="begudesDropdown" role="button" data-bs-toggle="dropdown">
+                            Begudes
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="begudesDropdown">
+                            <li><a class="dropdown-item" href="pages/begudes/coca-cola.html">Coca Cola</a></li>
+                            <li><a class="dropdown-item" href="pages/begudes/cerveza.html">Cervesa</a></li>
+                            <li><a class="dropdown-item" href="pages/begudes/agua-mineral.html">Aigua</a></li>
+                        </ul>
                     </li>
+                    
                     <li class="nav-item">
                         <a class="nav-link" href="pages/quisom.html">Nosaltres</a>
                     </li>
                 </ul>
                 
-                <!-- Mensaje de bienvenida (se añade dinámicamente con JS) -->
+                <!-- Mensaje de bienvenida (visible cuando se inicia sesión) -->
                 <span id="welcomeMessage" class="navbar-text text-white me-3" style="display: none;">
                     Benvingut xxxxx
                 </span>
@@ -217,19 +262,46 @@
     <nav aria-label="Navegació de pàgines" class="container mt-4">
         <ul class="pagination justify-content-center">
             <li class="page-item">
-                <a class="page-link" href="#">Previous</a>
+                <a class="page-link" href="#" id="prevPage">Anterior</a>
             </li>
             <li class="page-item active">
-                <a class="page-link" href="#">1</a>
+                <a class="page-link" href="pages/freds/iberic.html">1</a>
             </li>
             <li class="page-item">
-                <a class="page-link" href="#">2</a>
+                <a class="page-link" href="pages/freds/formatge.html">2</a>
             </li>
             <li class="page-item">
-                <a class="page-link" href="#">3</a>
+                <a class="page-link" href="pages/freds/vegetal.html">3</a>
             </li>
             <li class="page-item">
-                <a class="page-link" href="#">Next</a>
+                <a class="page-link" href="pages/calents/burger.html">4</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="pages/calents/frankfurt.html">5</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="pages/calents/pizza.html">6</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="pages/dolcos/gelat.html">7</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="pages/dolcos/crepe.html">8</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="pages/dolcos/pastis.html">9</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="pages/begudes/cocacola.html">10</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="pages/begudes/cervesa.html">11</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="pages/begudes/aigua.html">12</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#" id="nextPage">Següent</a>
             </li>
         </ul>
     </nav>
