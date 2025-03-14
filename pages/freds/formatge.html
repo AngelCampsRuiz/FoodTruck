@@ -3,20 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Entrepà de Ibèric - Food Truck</title>
+    <title>Entrepà de Formatge - Food Truck</title>
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <!-- CSS personalizado -->
     <link href="../../css/styles.css" rel="stylesheet">
+    <style>
+        .product-badge {
+            font-size: 1.1rem;
+            padding: 8px 15px;
+        }
+        .ingredients-list li {
+            margin-bottom: 0.5rem;
+        }
+        .nutritional-info {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
+    
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
             <!-- Logo -->
-            <a class="navbar-brand" href="../../index.html">
+            <a class="navbar-brand" href="index.html">
                 <img src="../../img/logoFoodTruck.png" alt="Logo Food Truck" width="120" style="max-height: 50px; object-fit: contain;">
             </a>
 
@@ -41,7 +57,7 @@
                         <ul class="dropdown-menu" aria-labelledby="menjarDropdown">
                             <!-- Submenú Freds -->
                             <li class="dropdown-submenu">
-                                <a class="dropdown-item dropdown-toggle" href="pages/freds.html">Freds</a>
+                                <a class="dropdown-item dropdown-toggle" href="../../pages/freds.html">Freds</a>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="../../pages/freds/iberic.html">Entrepà de ibèric</a></li>
                                     <li><a class="dropdown-item" href="../../pages/freds/formatge.html">Entrepà formatge</a></li>
@@ -61,7 +77,7 @@
                             
                             <!-- Submenú Dolços -->
                             <li class="dropdown-submenu">
-                                <a class="dropdown-item dropdown-toggle" href="pages/dolcos.html">Dolços</a>
+                                <a class="dropdown-item dropdown-toggle" href="../../pages/dolcos.html">Dolços</a>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="../../pages/dolcos/coulant.html">Coulant de xocolata</a></li>
                                     <li><a class="dropdown-item" href="../../pages/dolcos/creppe.html">Crêppe de xocolata</a></li>
@@ -132,13 +148,11 @@
         </div>
     </div>
 
-    <!-- Navbar (igual que en index.html) -->
-    
     <!-- Breadcrumb -->
     <nav aria-label="breadcrumb" class="container mt-3">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="../../index.html">Inici</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Entrepà de Ibèric</li>
+            <li class="breadcrumb-item active" aria-current="page">Entrepà de Formatge</li>
         </ol>
     </nav>
 
@@ -146,42 +160,77 @@
     <div class="container mt-4">
         <div class="row">
             <div class="col-md-5">
-                <img src="../../img/bocadillo-formatge.jpg" class="img-fluid rounded" alt="Entrepà de Ibèric">
-            </div>
-            <div class="col-md-7">
-                <h1>Entrepà de Ibèric</h1>
-                <div class="d-flex align-items-center mb-3">
-                    <span class="badge bg-success me-2">
-                        <i class="fas fa-euro-sign"></i> 8.50
-                    </span>
-                    <div class="ms-auto">
-                        <i class="fas fa-thumbs-up text-success me-2" data-bs-toggle="tooltip" title="M'agrada"></i>
-                        <i class="fas fa-thumbs-down text-danger" data-bs-toggle="tooltip" title="No m'agrada"></i>
+                <img src="../../img/bocadillo-formatge.jpg" class="img-fluid rounded shadow" alt="Entrepà de Formatge">
+                <div class="mt-3">
+                    <div class="d-flex justify-content-center gap-2">
+                        <span class="badge bg-info">
+                            <i class="fas fa-utensils me-1"></i> Clàssic
+                        </span>
+                        <span class="badge bg-warning">
+                            <i class="fas fa-award me-1"></i> Més Venut
+                        </span>
                     </div>
                 </div>
-                <p class="lead">El nostre entrepà estrella amb el millor pernil ibèric de gla.</p>
-                <hr>
-                <h4>Ingredients</h4>
-                <ul>
-                    <li>Pa artesanal de massa mare</li>
-                    <li>Pernil ibèric de gla</li>
-                    <li>Tomàquet de penjar</li>
-                    <li>Oli d'oliva verge extra</li>
-                    <li>Sal marina</li>
-                </ul>
-                <h4>Informació nutricional</h4>
-                <div class="d-flex">
-                    <div class="me-4">
-                        <i class="fas fa-fire-alt text-danger me-1"></i> 450 kcal
+            </div>
+            <div class="col-md-7">
+                <h1 class="display-4 mb-3">Entrepà de Formatge</h1>
+                <div class="d-flex align-items-center mb-4">
+                    <span class="badge bg-success product-badge me-3">
+                        <i class="fas fa-euro-sign"></i> 6.50
+                    </span>
+                    <div class="rating">
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star-half-alt text-warning"></i>
+                        <span class="ms-2 text-muted">(120 valoracions)</span>
                     </div>
-                    <div>
-                        <i class="fas fa-clock text-primary me-1"></i> 5 min
+                </div>
+
+                <div class="mb-4">
+                    <h3><i class="fas fa-info-circle text-primary me-2"></i>Descripció</h3>
+                    <p class="lead">
+                        Un clàssic entrepà de formatge amb una selecció dels millors formatges madurats, perfecte per als amants dels sabors intensos.
+                    </p>
+                </div>
+
+                <div class="mb-4">
+                    <h3><i class="fas fa-list text-success me-2"></i>Ingredients:</h3>
+                    <ul class="ingredients-list">
+                        <li><i class="fas fa-check me-2"></i>Formatge cheddar</li>
+                        <li><i class="fas fa-check me-2"></i>Formatge manchego</li>
+                        <li><i class="fas fa-check me-2"></i>Formatge brie</li>
+                        <li><i class="fas fa-check me-2"></i>Pa artesà</li>
+                        <li><i class="fas fa-check me-2"></i>Oli d'oliva verge extra</li>
+                    </ul>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <h3><i class="fas fa-info-circle text-info me-2"></i>Detalls</h3>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-clock me-2"></i> Temps de preparació: 5 minuts</li>
+                            <li><i class="fas fa-leaf me-2"></i> Opció vegetariana</li>
+                            <li><i class="fas fa-globe-europe me-2"></i> Origen: Recepta pròpia</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="nutritional-info">
+                            <h3><i class="fas fa-heartbeat text-danger me-2"></i>Info Nutricional</h3>
+                            <ul class="list-unstyled">
+                                <li>Calories: 400 kcal</li>
+                                <li>Proteïnes: 20g</li>
+                                <li>Carbohidrats: 35g</li>
+                                <li>Greixos: 18g</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    
+
     <!-- Footer -->
     <footer class="bg-dark text-white py-4 mt-5">
         <div class="container">
@@ -200,13 +249,13 @@
             <div class="row mt-4">
                 <div class="col-12 text-center">
                     <div class="social-icons d-flex justify-content-center gap-3">
-                        <a href="#" class="text-white" data-bs-toggle="tooltip" title="Facebook">
+                        <a href="#" class="text-white">
                             <i class="fab fa-facebook-f fa-lg"></i>
                         </a>
-                        <a href="#" class="text-white" data-bs-toggle="tooltip" title="Instagram">
+                        <a href="#" class="text-white">
                             <i class="fab fa-instagram fa-lg"></i>
                         </a>
-                        <a href="#" class="text-white" data-bs-toggle="tooltip" title="Twitter">
+                        <a href="#" class="text-white">
                             <i class="fab fa-twitter fa-lg"></i>
                         </a>
                     </div>
@@ -222,10 +271,7 @@
         </div>
     </footer>
 
-    <!-- Footer (igual que en index.html) -->
-
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../../js/main.js"></script>
 </body>
-</html> 
+</html>
