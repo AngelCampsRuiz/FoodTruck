@@ -12,15 +12,125 @@
     <link href="../../css/styles.css" rel="stylesheet">
 </head>
 <body>
-    <!-- Navbar (igual que en index.html) -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+     <!-- Navbar -->
+     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
+            <!-- Logo -->
             <a class="navbar-brand" href="../../index.html">
                 <img src="../../img/logoFoodTruck.png" alt="Logo Food Truck" width="120" style="max-height: 50px; object-fit: contain;">
             </a>
-            <!-- ... resto del navbar ... -->
+
+            <!-- Botón hamburguesa para móvil -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Contenido del navbar -->
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <!-- Menú principal -->
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../../index.html">Inici</a>
+                    </li>
+                    
+                    <!-- Menú desplegable Menjar -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="menjarDropdown" role="button" data-bs-toggle="dropdown">
+                            Menjar
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="menjarDropdown">
+                            <!-- Submenú Freds -->
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-item dropdown-toggle" href="../../pages/freds.html">Freds</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="../../pages/freds/iberic.html">Entrepà de ibèric</a></li>
+                                    <li><a class="dropdown-item" href="../../pages/freds/formatge.html">Entrepà formatge</a></li>
+                                    <li><a class="dropdown-item" href="../../pages/freds/vegetal.html">Entrepà vegetal</a></li>
+                                </ul>
+                            </li>
+                            
+                            <!-- Submenú Calents -->
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-item dropdown-toggle" href="../../pages/calents.html">Calents</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="../../pages/calents/burger.html">Burger</a></li>
+                                    <li><a class="dropdown-item" href="../../pages/calents/frankfurt.html">Frankfurt</a></li>
+                                    <li><a class="dropdown-item" href="../../pages/calents/pizza.html">Pizza</a></li>
+                                </ul>
+                            </li>
+                            
+                            <!-- Submenú Dolços -->
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-item dropdown-toggle" href="../../pages/dolcos.html">Dolços</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="../../pages/dolcos/gelat.html">Gelat Magnum</a></li>
+                                    <li><a class="dropdown-item" href="../../pages/dolcos/crepe.html">Crêppe xocolata</a></li>
+                                    <li><a class="dropdown-item" href="../../pages/dolcos/pastis.html">Pastís</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    <!-- Menú desplegable Begudes -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="begudesDropdown" role="button" data-bs-toggle="dropdown">
+                            Begudes
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="begudesDropdown">
+                            <li><a class="dropdown-item" href="../../pages/begudes/coca-cola.html">Coca Cola</a></li>
+                            <li><a class="dropdown-item" href="../../pages/begudes/cerveza.html">Cervesa</a></li>
+                            <li><a class="dropdown-item" href="../../pages/begudes/aigua-mineral.html">Aigua</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../pages/quisom.html">Nosaltres</a>
+                    </li>
+                </ul>
+                
+                <!-- Mensaje de bienvenida (visible cuando se inicia sesión) -->
+                <span id="welcomeMessage" class="navbar-text text-white me-3" style="display: none;">
+                    Benvingut xxxxx
+                </span>
+                
+                <!-- Botones de login/logout -->
+                <button class="btn btn-light me-2" data-bs-toggle="modal" data-bs-target="#loginModal" data-bs-toggle="tooltip" title="Iniciar sessió">
+                    Login
+                </button>
+                <button class="btn btn-danger" id="logoutBtn" style="display: none;" data-bs-toggle="tooltip" title="Tancar sessió">
+                    Logout
+                </button>
+            </div>
         </div>
     </nav>
+    
+    <!-- Modal de Login -->
+    <div class="modal fade" id="loginModal">
+        <div class="modal-dialog modal-dialog-end">
+            <div class="modal-content bg-light bg-opacity-90">
+                <div class="modal-header">
+                    <h5 class="modal-title">Formulari de login</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label class="form-label">Login</label>
+                            <input type="text" class="form-control" id="username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel·lar</button>
+                    <button type="button" class="btn btn-primary" id="loginSubmit">Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Breadcrumb -->
     <nav aria-label="breadcrumb" class="container mt-3">
@@ -36,7 +146,7 @@
         <div class="row">
             <!-- Imagen del producto -->
             <div class="col-md-6">
-                <img src="../../img/begudes/aigua.png" alt="Aigua Mineral" class="img-fluid rounded shadow">
+                <img src="../../img/agua_mineral.jpg" alt="Aigua Mineral" class="img-fluid rounded shadow">
             </div>
             <!-- Detalles del producto -->
             <div class="col-md-6">
@@ -45,6 +155,12 @@
                 <hr>
                 <h4>Descripció</h4>
                 <p>Aigua mineral natural de manantial. Disponible en ampolla de 50cl.</p>
+                <h4>Informació nutricional</h4>
+                <div class="d-flex">
+                    <div class="me-4">
+                        <i class="fas fa-fire-alt text-danger me-1"></i> 0 kcal
+                    </div>
+                </div>
                 <h4>Preu</h4>
                 <p class="h3 text-primary">1.50€</p>
                 <div class="mt-4">
@@ -56,7 +172,42 @@
 
     <!-- Footer -->
     <footer class="bg-dark text-white py-4 mt-5">
-        <!-- ... contenido del footer ... -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <div class="bg-light bg-opacity-25 p-3 rounded">
+                        <h5 class="text-center">On trobar-nos (icona personal)</h5>
+                    </div>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <div class="bg-light bg-opacity-25 p-3 rounded">
+                        <h5 class="text-center">Qui som (icona personal)</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-12 text-center">
+                    <div class="social-icons d-flex justify-content-center gap-3">
+                        <a href="#" class="text-white" data-bs-toggle="tooltip" title="Facebook">
+                            <i class="fab fa-facebook-f fa-lg"></i>
+                        </a>
+                        <a href="#" class="text-white" data-bs-toggle="tooltip" title="Instagram">
+                            <i class="fab fa-instagram fa-lg"></i>
+                        </a>
+                        <a href="#" class="text-white" data-bs-toggle="tooltip" title="Twitter">
+                            <i class="fab fa-twitter fa-lg"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-12 text-center">
+                    <small>Info · Support · Marketing</small><br>
+                    <small>Terms of Use · Privacy Policy</small><br>
+                    <small>&copy; 2023 Food Truck</small>
+                </div>
+            </div>
+        </div>
     </footer>
 
     <!-- Scripts -->
